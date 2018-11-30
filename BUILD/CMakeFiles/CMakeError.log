@@ -1,0 +1,459 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_555be/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_555be.dir/build.make CMakeFiles/cmTC_555be.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_555be.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_555be.dir/CheckSymbolExists.c.o   -c /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_555be
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_555be.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_555be.dir/CheckSymbolExists.c.o  -o cmTC_555be 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: CMakeFiles/cmTC_555be.dir/CheckSymbolExists.c.o: in function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_555be.dir/build.make:98: cmTC_555be] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_555be/fast] Error 2
+
+File /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_bfc1e/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_bfc1e.dir/build.make CMakeFiles/cmTC_bfc1e.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bfc1e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_bfc1e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_bfc1e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bfc1e.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_bfc1e.dir/CheckFunctionExists.c.o  -o cmTC_bfc1e -lpthreads 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_bfc1e.dir/build.make:98: cmTC_bfc1e] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_bfc1e/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_22a28/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_22a28.dir/build.make CMakeFiles/cmTC_22a28.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_22a28.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_22a28.dir/CheckSymbolExists.c.o   -c /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_22a28
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_22a28.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_22a28.dir/CheckSymbolExists.c.o  -o cmTC_22a28 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: CMakeFiles/cmTC_22a28.dir/CheckSymbolExists.c.o: in function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_22a28.dir/build.make:98: cmTC_22a28] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_22a28/fast] Error 2
+
+File /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_01dda/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_01dda.dir/build.make CMakeFiles/cmTC_01dda.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_01dda.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_01dda.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_01dda
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_01dda.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_01dda.dir/CheckFunctionExists.c.o  -o cmTC_01dda -lpthreads 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_01dda.dir/build.make:98: cmTC_01dda] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_01dda/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_362a3/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_362a3.dir/build.make CMakeFiles/cmTC_362a3.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_362a3.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_362a3.dir/CheckSymbolExists.c.o   -c /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_362a3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_362a3.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_362a3.dir/CheckSymbolExists.c.o  -o cmTC_362a3 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: CMakeFiles/cmTC_362a3.dir/CheckSymbolExists.c.o: in function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_362a3.dir/build.make:98: cmTC_362a3] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_362a3/fast] Error 2
+
+File /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_2209b/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_2209b.dir/build.make CMakeFiles/cmTC_2209b.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2209b.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_2209b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2209b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2209b.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_2209b.dir/CheckFunctionExists.c.o  -o cmTC_2209b -lpthreads 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_2209b.dir/build.make:98: cmTC_2209b] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_2209b/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_ae865/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_ae865.dir/build.make CMakeFiles/cmTC_ae865.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ae865.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_ae865.dir/CheckSymbolExists.c.o   -c /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_ae865
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae865.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_ae865.dir/CheckSymbolExists.c.o  -o cmTC_ae865 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: CMakeFiles/cmTC_ae865.dir/CheckSymbolExists.c.o: in function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_ae865.dir/build.make:98: cmTC_ae865] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_ae865/fast] Error 2
+
+File /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_1633e/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_1633e.dir/build.make CMakeFiles/cmTC_1633e.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1633e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_1633e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1633e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1633e.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_1633e.dir/CheckFunctionExists.c.o  -o cmTC_1633e -lpthreads 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_1633e.dir/build.make:98: cmTC_1633e] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_1633e/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_2b702/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_2b702.dir/build.make CMakeFiles/cmTC_2b702.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2b702.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_2b702.dir/CheckSymbolExists.c.o   -c /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_2b702
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2b702.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_2b702.dir/CheckSymbolExists.c.o  -o cmTC_2b702 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: CMakeFiles/cmTC_2b702.dir/CheckSymbolExists.c.o: in function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_2b702.dir/build.make:98: cmTC_2b702] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_2b702/fast] Error 2
+
+File /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_ae313/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_ae313.dir/build.make CMakeFiles/cmTC_ae313.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ae313.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_ae313.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ae313
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae313.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_ae313.dir/CheckFunctionExists.c.o  -o cmTC_ae313 -lpthreads 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_ae313.dir/build.make:98: cmTC_ae313] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_ae313/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_942ef/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_942ef.dir/build.make CMakeFiles/cmTC_942ef.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_942ef.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_942ef.dir/CheckSymbolExists.c.o   -c /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_942ef
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_942ef.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_942ef.dir/CheckSymbolExists.c.o  -o cmTC_942ef 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: CMakeFiles/cmTC_942ef.dir/CheckSymbolExists.c.o: in function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_942ef.dir/build.make:98: cmTC_942ef] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_942ef/fast] Error 2
+
+File /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_8f0df/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_8f0df.dir/build.make CMakeFiles/cmTC_8f0df.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8f0df.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_8f0df.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8f0df
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8f0df.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_8f0df.dir/CheckFunctionExists.c.o  -o cmTC_8f0df -lpthreads 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_8f0df.dir/build.make:98: cmTC_8f0df] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_8f0df/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_ffd7e/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_ffd7e.dir/build.make CMakeFiles/cmTC_ffd7e.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ffd7e.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_ffd7e.dir/CheckSymbolExists.c.o   -c /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_ffd7e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ffd7e.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_ffd7e.dir/CheckSymbolExists.c.o  -o cmTC_ffd7e 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: CMakeFiles/cmTC_ffd7e.dir/CheckSymbolExists.c.o: in function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_ffd7e.dir/build.make:98: cmTC_ffd7e] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_ffd7e/fast] Error 2
+
+File /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_a588b/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_a588b.dir/build.make CMakeFiles/cmTC_a588b.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a588b.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_a588b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a588b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a588b.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_a588b.dir/CheckFunctionExists.c.o  -o cmTC_a588b -lpthreads 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_a588b.dir/build.make:98: cmTC_a588b] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_a588b/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_fe2cb/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_fe2cb.dir/build.make CMakeFiles/cmTC_fe2cb.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fe2cb.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_fe2cb.dir/CheckSymbolExists.c.o   -c /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_fe2cb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fe2cb.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_fe2cb.dir/CheckSymbolExists.c.o  -o cmTC_fe2cb 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: CMakeFiles/cmTC_fe2cb.dir/CheckSymbolExists.c.o: in function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_fe2cb.dir/build.make:98: cmTC_fe2cb] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_fe2cb/fast] Error 2
+
+File /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_6851c/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_6851c.dir/build.make CMakeFiles/cmTC_6851c.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6851c.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_6851c.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6851c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6851c.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_6851c.dir/CheckFunctionExists.c.o  -o cmTC_6851c -lpthreads 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_6851c.dir/build.make:98: cmTC_6851c] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_6851c/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_02971/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_02971.dir/build.make CMakeFiles/cmTC_02971.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_02971.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_02971.dir/CheckSymbolExists.c.o   -c /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_02971
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_02971.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_02971.dir/CheckSymbolExists.c.o  -o cmTC_02971 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: CMakeFiles/cmTC_02971.dir/CheckSymbolExists.c.o: in function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_02971.dir/build.make:98: cmTC_02971] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_02971/fast] Error 2
+
+File /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/gmake" "cmTC_8b0b7/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_8b0b7.dir/build.make CMakeFiles/cmTC_8b0b7.dir/build
+gmake[1]: Entering directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8b0b7.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_8b0b7.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8b0b7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8b0b7.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_8b0b7.dir/CheckFunctionExists.c.o  -o cmTC_8b0b7 -lpthreads 
+/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_8b0b7.dir/build.make:98: cmTC_8b0b7] Error 1
+gmake[1]: Leaving directory '/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:126: cmTC_8b0b7/fast] Error 2
+
+
