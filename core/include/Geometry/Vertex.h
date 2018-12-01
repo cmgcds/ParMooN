@@ -1,30 +1,26 @@
 // =======================================================================
-// @(#)Vertex.h        1.1 10/30/98
+// Vertex.h     1.1  
 // 
-// Class:       TVertex
-// Purpose:     a vertex in a grid
+// Class:       vertex
+// Purpose:     a vertex in a mesh
 //
-// Author:      Volker Behns  09.07.97
-//              Sashikumaar Ganesan 05.11.09 (added parallel methods)
-//              Sashikumaar Ganesan 08.09.2010 (added 3D parallel methods)
+// Author:      Sashikumaar Ganesan 01.12.18
 // =======================================================================
 
 #ifndef __VERTEX__
 #define __VERTEX__
 
-#include <MooNMD_Io.h>
-#include <Constants.h>
+#include <ParMooN_IO.h>
+#include <Parameters.h>
 
-/** a vertex in a grid */
-class TVertex
+/** @brief a vertex in a mesh**/
+class Vertex
 {
   protected:
-    /** first coordinate */
-    double X;
-    /** second coordinate */
-    double Y;
+    /** @brief coordinates**/
+    double X, Y;
 #ifdef __3D__
-      /** third coordinate (3D) */
+      /** @brief third coordinate**/
       double Z;
 #endif
 
@@ -33,51 +29,50 @@ class TVertex
 
 #ifdef _MPI
 
-    /** Number of 3D cells containing this cells **/
-    /** Note !this info only set for dependent cells !!!!!!! */
+    /** @brief Number of cells that containing this vertex **/
+    /** @brief Number of dependent cells in parallel **/
     int N_Cells;
 
-    /** cells */
-    /** Note ! this info only set for dependent cells !!!!!!!!!!*/
+    /** @brief array of cells (instances of the cell class) containg this vertex **/
     TBaseCell **Cells;
 
-    /** marking this vertex as subdomain vertex */
+    /** @brief marking this vertex as subdomain vertex**/
     bool SubDomainVert;
 
-    /** marking this vertex as cross vertex */
+    /** @brief marking this vertex as cross vertex**/
     bool CrossVert;
 
-    /** an integer which stores the number of ranks (SubDomains) contain this vertex */
+    /** @brief number of ranks (SubDomains) containing this vertex**/
     int N_SubDomains;
 
-    /** an integer which stores the rank of SubDomains, which contain this vertex */
+    /** @brief ranks (SubDomains) that contain this vertex**/
     int *SubDomain_Ranks;
 
-    /** list of neib cell Globalnumbers, which incident this vertex */
+    /** @brief Global cell numbers of the neib cells that incident with this vertex**/
     int *SubDomainGlobalCellNo;
 
-    /** list of neib cell local vert no */
+    /** @brief local index of this vertex in the neib cell**/
     int *SubDomainLocVertNo;
 
-    /** an integer which stores the number of Cross neib cells, which incident this vertex */
+    /** @brief number of Cross neib cells that contain this vertex**/
     int N_CrossNeibCells;  
     
+    /** @brief boundary ID of this vertex**/    
     int Bd_id; 
     
 #endif
-
     
-    /** marking this vertex as Bound vertex */
+    /** @brief marking this vertex as boundary vertex**/
     bool BoundVert;   
     
   public:
     // Constructors
 
 #ifdef __3D__
-      /** 3D vertex */
+      /** @brief 3D vertex constructor**/
       TVertex(double initX, double initY, double initZ);
 #else
-      /** 2D vertex */ 
+      /**  @brief 2D vertex constructor**/ 
       TVertex(double initX, double initY);
 #endif
 
@@ -85,27 +80,27 @@ class TVertex
     ~TVertex();
 
     // Methods
-
     // set coordinates
 #ifdef __3D__
-      /** set the coordinates in 3D */
+      /** @brief set coordinates in 3D**/
       void SetCoords(double initX, double initY, double initZ);
 #else
-      /** set the coordinate in 2D */
+      /** @brief set coordinate in 2D**/
       void SetCoords(double initX, double initY);
 #endif
 
-    /** return the x coordinate */
+    /** @brief return the x coordinate**/
     double GetX() const
     { return X; }
-    /** return the y coordinate */
+    /** @brief return the y coordinate**/
     double GetY() const
     { return Y; }
 #ifdef __3D__
-      /** return the z coordinate (3D) */
+      /** @brief return the z coordinate (3D)**/
       double GetZ() const
       { return Z; }
-      /** return all three coordinates */
+      
+      /** @brief return all three coordinates**/
       void GetCoords(double& x, double& y, double& z) const
       {
         x = X;
@@ -113,7 +108,7 @@ class TVertex
         z = Z;
       }
 #else
-      /** return all two coordinates */
+      /** @brief return all two coordinates**/
       void GetCoords(double& x, double& y) const
       {
         x = X;
@@ -121,26 +116,31 @@ class TVertex
       }
 #endif
 
-    /** write some information of the vertex in stream s */
-    friend std::ostream& operator << (std::ostream& s, TVertex *v);
+    /** write some information of the vertex in stream s**/
+    friend std::ostream& operator << (std::ostream& s, Vertex *v);
 
-    /** set value in ClipBoard */
+    /** @brief set value in ClipBoard**/
     void SetClipBoard(int value)
     { ClipBoard=value; }
-    /** get value from ClipBoard */
+    
+    /** @brief get value from ClipBoard**/
     int GetClipBoard() const
     { return ClipBoard; }
 
+    
+     /** @brief set as boundary vertex**/
      void SetAsBoundVert()
       { BoundVert=TRUE; }    
-      
+     
+     
+     /** @brief is it a boundary vertex?**/    
      bool IsBoundVert() const
      { return BoundVert; }     
     
 #ifdef _MPI
 
-    /** Note ! this info only set for dependent cells !!!!!! */
-    void SetVertexCells(int n_Cells, TBaseCell **cells);
+    /** @brief set cells (dependent) associated with this vertex**/
+    void SetVertexCells(int n_Cells, BaseCell **cells);
 
     void SetSubDomainInfo(int n_SubDomains, int *subDomain_Ranks, int *subDomainGlobalCellNo, 
                           int *subDomainLocVertNo);
@@ -174,7 +174,7 @@ class TVertex
        LocVertNo = SubDomainLocVertNo;
       }
 
-     void GetNeibs(int &n_Neibs, TBaseCell **&neighbs)
+     void GetNeibs(int &n_Neibs, BaseCell **&neighbs)
       {
        n_Neibs = N_Cells;
        neighbs = Cells;
@@ -184,14 +184,10 @@ class TVertex
       {  return N_Cells; } 
 #ifdef _MPI
       void set_Bd_id(int key)
-      {      
-	Bd_id = key;
-      }
+      {  Bd_id = key; }
       
       int get_Bd_id()
-      {      
-	return Bd_id;
-      }
+      { return Bd_id; }
 #endif    
 #endif
 };

@@ -1,11 +1,10 @@
 // =======================================================================
-// @(#)Vertex.C        1.1 10/30/98
+// Vertex.C     1.1
 // 
-// Class:       TVertex
+// Class:       Vertex
 // Purpose:     a vertex in a grid 
 //
-// Author:      Volker Behns  09.07.97
-//              Sashikumaar Ganesan 05.11.09 (added parallel methods)
+// Author:      Sashikumaar Ganesan 01.12.18
 // =======================================================================
 #ifdef _MPI
 #  include "mpi.h"
@@ -50,7 +49,7 @@ TVertex::TVertex(double initX, double initY)
 }
 #endif
 
-// Methods
+/** @brief Methods */
 
 // set coordinates
 #ifdef __3D__
