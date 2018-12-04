@@ -1,6 +1,0 @@
-/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/rebuild_cache.dir
-/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/parmoon_3D_MPIGPU.exe.dir
-/home/sashi/GitHub/ParMooN/BUILD/CMakeFiles/edit_cache.dir
-/home/sashi/GitHub/ParMooN/BUILD/core/src/Geometry/CMakeFiles/rebuild_cache.dir
-/home/sashi/GitHub/ParMooN/BUILD/core/src/Geometry/CMakeFiles/geo.dir
-/home/sashi/GitHub/ParMooN/BUILD/core/src/Geometry/CMakeFiles/edit_cache.dir

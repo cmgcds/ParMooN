@@ -1,1 +1,0 @@
-/opt/OpenMPI/bin/mpicxx    -std=c++11 -fopenmp -D__3D__ -D__LINUX64__  -DTRILIBRARY -DTETLIBRARY  -D__PRIVATE__   -rdynamic CMakeFiles/parmoon_3D_MPIGPU.exe.dir/module/3D/CD3D_ParMooN.C.o  -o OutPut/parmoon_3D_MPIGPU.exe 
