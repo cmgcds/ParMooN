@@ -33,7 +33,8 @@ struct ParameterDB
   //======================================================================
   /** parameters data output and input files                            */
   //======================================================================
-  char *MAPFILE;
+  
+//   vector<char[]> MAPFILE;
   char *OUTFILE;
   char *PODFILE;
 

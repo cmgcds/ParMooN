@@ -24,7 +24,7 @@
 # please DO NOT modify unless if it is necessary
 # beginners are advised NOT to alter anything the below contents
 
-cmake_minimum_required (VERSION 2.8)
+cmake_minimum_required (VERSION 2.8) 
 
 project(ParMooN)
 
