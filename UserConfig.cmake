@@ -8,25 +8,25 @@
 set(CMAKE_VERBOSE_MAKEFILE FALSE)
 
 # selection of dimension (2D 3D)
-# set(AParMooN_GEO "2D" CACHE STRING "Change AParMooN_GEO, to select the Dimension of the model problem")
-set(AParMooN_GEO "3D" CACHE STRING "Change AParMooN_GEO, to select the Dimension of the model problem")
+set(AParMooN_GEO "2D" CACHE STRING "Change AParMooN_GEO, to select the Dimension of the model problem")
+# set(AParMooN_GEO "3D" CACHE STRING "Change AParMooN_GEO, to select the Dimension of the model problem")
 
  #...................................................................................................................................................
 # select this line accordingly to include your main program
-# set(AParMooN_MODEL "module/2D/CD2D_ParMooN.C" CACHE STRING "Enter to select the Main file of the model")
-set(AParMooN_MODEL "module/3D/CD3D_ParMooN.C" CACHE STRING "Enter to select the Main file of the model")
+set(AParMooN_MODEL "module/2D/CD2D_ParMooN.C" CACHE STRING "Enter to select the Main file of the model")
+# set(AParMooN_MODEL "module/3D/CD3D_ParMooN.C" CACHE STRING "Enter to select the Main file of the model")
 
 # selection of architect type (LINUX64 MAC64 INTEL64 TYRONE64 CRAY64)
 set(AParMooN_ARCH "LINUX64" CACHE STRING "select the machine type")
 
 #  selection of program type (SEQUENTIAL SMPI MPI OMPONLY HYBRID MPIGPU)
-set(AParMooN_PARALLEL_TYPE "MPIGPU" CACHE STRING "select the parallel type")
+set(AParMooN_PARALLEL_TYPE "SEQUENTIAL" CACHE STRING "select the parallel type")
 
 #  selection of program type (MPICH OPENMPI INTELMPI CRAYMPI MACMPI)
 set(AParMooN_MPI_IMPLEMENTATION "OPENMPI" CACHE STRING "select the MPI Implementation type")
 
 # set the path to save the exe file ....................................................................................
-set(AParMooN_OUTPUT_DIR_PATH "OutPut/" CACHE STRING "select the model")
+set(AParMooN_OUTPUT_DIR_PATH "../OutPut/cd2d/" CACHE STRING "select the model")
 
 set(USE_PARMOON_DEFINE -D__PRIVATE__)
 

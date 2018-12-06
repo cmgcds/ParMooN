@@ -71,7 +71,7 @@ struct UserParamDB
   int CONTACT_ANGLE_TYPE;                         // type of contact angle 
   
   
-  int    MESH_SLIP_WITH_FRICTION;  
+  int  MESH_SLIP_WITH_FRICTION;  
   
   //======================================================================
   /** the following parameters are for individual use */

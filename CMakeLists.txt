@@ -28,10 +28,12 @@ cmake_minimum_required (VERSION 2.8)
 
 project(ParMooN)
 
-enable_language(CUDA)
-
 include(${CMAKE_SOURCE_DIR}/UserConfig.cmake)
 
+if("${AParMooN_PARALLEL_TYPE}"STREQUAL "MPIGPU")
+enable_language(CUDA)
+endif("${AParMooN_PARALLEL_TYPE}"STREQUAL "MPIGPU")
+      
 set (ParMooN_VERSION_MAJOR 1)
 set (ParMooN_VERSION_MINOR 0)
 
@@ -103,33 +105,6 @@ find_package(MPI)
    endif("${AParMooN_MPI_IMPLEMENTATION}" STREQUAL "MPICH")   
 
 message(" MPI_LIBS " = ${MPI_LIBS})
-
-# search the LAPACK in the system, if available it will be default
-#   message("==================Searching LAPACK in the System - begin===================================================")
-#  if(AParMooN_USE_SYSTEM_LAPACK)  
-#   find_package(LAPACK)
-#   include_directories(${LAPACK_INCLUDE_DIRS})
-#   if(CMAKE_VERBOSE_MAKEFILE)
-#     if(LAPACK_FOUND)
-#       message("Available system LAPACK_LIB =${LAPACK_LIBRARIES}")
-#     elseif(NOT LAPACK_FOUND)
-#         message(FATAL_ERROR "LAPACK_NOT_FOUND in your system")
-#     endif(LAPACK_FOUND)
-#   endif(CMAKE_VERBOSE_MAKEFILE)
-#  endif(AParMooN_USE_SYSTEM_LAPACK)
-#   
-#   if(NOT SCALAPACK_FOUND)
-#     message("LAPACK_NOT_FOUND in your system, Searching in ParMooN")
-#     find_package(MPIBLACS REQUIRED)
-#     if(CMAKE_VERBOSE_MAKEFILE)
-#     if(MPIBLACS_FOUND)
-#       message("Available system MPIBLACS =${MPIBLACS_LIBRARIES}")
-#     elseif(NOT MPIBLACS_FOUND)
-#       message("MPIBLACS_NOT_FOUND in ParMooN")
-#     endif(MPIBLACS_FOUND)
-#    endif(CMAKE_VERBOSE_MAKEFILE)   
-#   endif(NOT MPIBLACS_FOUND)  
-# message("==================Searching LAPACK in the System - end=====================================================")  
 
  # search the MUMPS in the system, if available it wil be default
  message("==================Searching MUMPS in the System - begin=====================================================")
@@ -295,9 +270,9 @@ endif()
   set(CMAKE_CXX_FLAGS_DEBUG "${PARMOON_CXX_DEF} ")
   set(CMAKE_CXX_FLAGS_RELEASE "-O3 -s ${PARMOON_CXX_DEF}") 
  
-# include_directories("${CMAKE_SOURCE_DIR}/include/General")
-# include_directories("${CMAKE_SOURCE_DIR}/include/FE")
-include_directories("${CMAKE_SOURCE_DIR}/core/include/Geometry")
+include_directories("${CMAKE_SOURCE_DIR}/core/include/General")
+include_directories("${CMAKE_SOURCE_DIR}/core/include/FE")
+# include_directories("${CMAKE_SOURCE_DIR}/core/include/Geometry")
 # include_directories("${CMAKE_SOURCE_DIR}/include/QuadFormulas")
 # include_directories("${CMAKE_SOURCE_DIR}/include/FE1D")
 # include_directories("${CMAKE_SOURCE_DIR}/include/FE2D")
@@ -312,9 +287,9 @@ include_directories("${CMAKE_SOURCE_DIR}/core/include/Geometry")
 # add_subdirectory(core/src/AMG) 
 # add_subdirectory(core/src/Refinement) 
 # add_subdirectory(core/src/QuadFormulas)  
-add_subdirectory(core/src/Geometry)          
-# add_subdirectory(core/src/General) 
-# add_subdirectory(core/src/FE) 
+# add_subdirectory(core/src/Geometry)          
+add_subdirectory(core/src/General) 
+add_subdirectory(core/src/FE) 
 # add_subdirectory(core/src/System) 
 # add_subdirectory(core/src/PBE) 
 
@@ -333,9 +308,10 @@ if( "${AParMooN_PARALLEL_TYPE}" STREQUAL "MPI"  OR "${AParMooN_PARALLEL_TYPE}" S
                       "amg"  "quad" "ref" "geo" "fe" "quad" "geo"  ${UMFPACK_LIBRARIES} ${TECPLOT_LIBRARIES}
                       ${MPIBLACS_LIBRARIES}  ${TETGEN_LIBRARIES} ${GRIDGEN_LIBRARIES}  ${MUMPS_LIBRARIES}   ${BLAS_LIBRARIES} ${MPI_LIBS})  
 elseif( "${AParMooN_PARALLEL_TYPE}" STREQUAL "SEQUENTIAL"  OR "${AParMooN_PARALLEL_TYPE}" STREQUAL "OMPONLY")
-   target_link_libraries(parmoon_${AParMooN_GEO}_${AParMooN_PARALLEL_TYPE}.exe "sys" "geo"  "fe" "gen" "geo" "fe" "gen"  
-                      "amg"  "quad" "ref" "geo" "fe" "quad" "geo"  ${UMFPACK_LIBRARIES} ${TECPLOT_LIBRARIES}
-                      ${BLAS_LIBRARIES} ${TETGEN_LIBRARIES} ${GRIDGEN_LIBRARIES} )
+#    target_link_libraries(parmoon_${AParMooN_GEO}_${AParMooN_PARALLEL_TYPE}.exe "sys" "geo"  "fe" "gen" "geo" "fe" "gen"  
+#                       "amg"  "quad" "ref" "geo" "fe" "quad" "geo"  ${UMFPACK_LIBRARIES} ${TECPLOT_LIBRARIES}
+#                       ${BLAS_LIBRARIES} ${TETGEN_LIBRARIES} ${GRIDGEN_LIBRARIES} )
+   target_link_libraries(parmoon_${AParMooN_GEO}_${AParMooN_PARALLEL_TYPE}.exe "gen")
 endif("${AParMooN_PARALLEL_TYPE}" STREQUAL "MPI"  OR "${AParMooN_PARALLEL_TYPE}" STREQUAL "HYBRID" OR "${AParMooN_PARALLEL_TYPE}" STREQUAL "SMPI")
 
 message("============================================================================================================"  )  
