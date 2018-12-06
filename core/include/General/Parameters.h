@@ -6,6 +6,10 @@
 // =======================================================================
 
 #include <math.h>
+#include <iostream>
+#include <vector>
+
+using std::vector;
 
 #ifndef __PARAMETERS__
 #define __PARAMETERS__
@@ -26,10 +30,10 @@
 #define Pi M_PI
 #define ln2 log((double) 2.0)
 
-#define SizeOfPointer  ((long) 4)
-#define SizeOfInt      ((long) 4)
-#define SizeOfFloat    ((long) 4)
-#define SizeOfDouble   ((long) 8)
+// #define SizeOfPointer  ((long) 4)
+// #define SizeOfInt      ((long) 4)
+// #define SizeOfFloat    ((long) 4)
+// #define SizeOfDouble   ((long) 8)
 
 #ifdef FALSE
 #undef FALSE
@@ -44,14 +48,14 @@
   #define BYOWN 2
 #endif
 
-enum boolean {FALSE, TRUE};
+enum class boolean {FALSE, TRUE};
 
 #define N_BOUNDCOND 10
-enum BoundCond { DIRICHLET, NEUMANN, ROBIN, SLIP, FREESURF, 
+enum class BoundCond { DIRICHLET, NEUMANN, ROBIN, SLIP, FREESURF, 
                  SLIP_FRICTION_PENETRATION_RESISTANCE, 
                  INTERFACE, SUBDOMAIN_INTERFACE, SUBDOMAIN_HALOBOUND, DIRICHLET_WEAK};
 
-enum JointType {Joint, JointEqN, BoundaryPoint, BoundaryEdge, BoundaryFace,
+enum class JointType {Joint, JointEqN, BoundaryPoint, BoundaryEdge, BoundaryFace,
                 InterfaceJoint, PeriodicJoint, IsoInterfaceJoint,
                 IsoJointEqN, IsoBoundEdge, IsoBoundFace,
                 Joint_2to1, 
@@ -59,11 +63,11 @@ enum JointType {Joint, JointEqN, BoundaryPoint, BoundaryEdge, BoundaryFace,
                 SubDomainJoint, SubDomainHaloJoint, InnerInterfaceJoint,
                 InnerEdge, IsoEdge3D, BDEdge3D};
 
-typedef void DoubleFunct1D(double, double *);
-typedef void DoubleFunct2D(double, double, double *);
-typedef void DoubleFunct3D(double, double, double, double *);
-typedef void DoubleFunctND(int, double *, double *);
-typedef void DoubleFunctVect(double *, double *);
+typedef void DoubleFunct1D(double, vector<double> );
+typedef void DoubleFunct2D(double, double, vector<double> );
+typedef void DoubleFunct3D(double, double, double, vector<double>);
+typedef void DoubleFunctND(int, vector<double>, vector<double>);
+typedef void DoubleFunctVect(vector<double>, vector<double>);
 typedef int IntFunct2D(double, double);
 typedef double DoubleFunct2Param(double, double);
 
@@ -72,49 +76,49 @@ typedef void BoundValueFunct3D(int, double, double, double, double &);
 typedef void BoundCondFunct2D(int, double, BoundCond &);
 typedef void BoundValueFunct2D(int, double, double &);
 
-typedef void ErrorMethod2D(int, double *, double *, 
-                           double *, double *, double,
-                           double **, double **,
-                           double **, double *);
+typedef void ErrorMethod2D(int, vector<double>, vector<double>, 
+                           vector<double>, vector<double>, double,
+                           vector<vector<double> >, vector<vector<double> >,
+                           vector<vector<double> >, vector<double>);
 
-typedef void ErrorMethod3D(int, double *, double *, double *,
-                           double *, double *, double,
-                           double **, double **,
-                           double **, double *);
+typedef void ErrorMethod3D(int, vector<double>, vector<double>, vector<double>,
+                           vector<double>, vector<double>, double,
+                           vector<vector<double> >, vector<vector<double> >,
+                           vector<vector<double> >, vector<double>);
 
 typedef DoubleFunctVect ParamFct;
 
-typedef void CoeffFct2D(int n_points, double *X, double *Y,
-                        double **param, double **coeffs);
+typedef void CoeffFct2D(int n_points, vector<double>X, vector<double>Y,
+                        vector<vector<double> >param, vector<vector<double> >coeffs);
 
-typedef void CoeffFct3D(int n_points, double *X, double *Y, double *Z,
-                        double **param, double **coeffs);
+typedef void CoeffFct3D(int n_points, vector<double>X, vector<double>Y, vector<double>Z,
+                        vector<vector<double> >param, vector<vector<double> >coeffs);
                         
-typedef void CoeffFctND(int n_points, int N_Dim, double **Coords,
-                        double **param, double **coeffs);  
+typedef void CoeffFctND(int n_points, int N_Dim, vector<vector<double> >Coords,
+                        vector<vector<double> >param, vector<vector<double> >coeffs);  
 
-typedef void AssembleFct2D(double, double *, double, double **, 
-                           int *, double ***, double **);
+typedef void AssembleFct2D(double, vector<double>, double, vector<vector<double> >, 
+                           int *, vector<vector<vector<double> > >, vector<vector<double> >);
 
-typedef void AssembleFctParam2D(double, double *, double *,
-                                double, double **, 
-                                int *, double ***, double **);
+typedef void AssembleFctParam2D(double, vector<double>, vector<double>,
+                                double, vector<vector<double> >, 
+                                int *, vector<vector<vector<double> > >, vector<vector<double> >);
 
-typedef void AssembleFct3D(double, double *, double, double **, 
-                           int *, double ***, double **);
+typedef void AssembleFct3D(double, vector<double>, double, vector<vector<double> >, 
+                           int *, vector<vector<vector<double> > >, vector<vector<double> >);
 
-typedef void AssembleFctParam3D(double, double *, double *,
-                                double, double **, 
-                                int *, double ***, double **);
+typedef void AssembleFctParam3D(double, vector<double>, vector<double>,
+                                double, vector<vector<double> >, 
+                                int *, vector<vector<vector<double> > >, vector<vector<double> >);
 
 class TBaseCell;
-typedef void ManipulateFct2D(int, double **, double **, TBaseCell *);
+typedef void ManipulateFct2D(int, vector<vector<double> >, vector<vector<double> >, TBaseCell *);
 
-typedef void ManipulateFct3D(int, double **, double **, TBaseCell *);
+typedef void ManipulateFct3D(int, vector<vector<double> >, vector<vector<double> >, TBaseCell *);
 
 class TCollection;
-typedef void EvalAllNF(TCollection *, TBaseCell *, double *, double *);
-typedef void EvalJointNF(TCollection *, TBaseCell *, int, double *, double *);
+typedef void EvalAllNF(TCollection *, TBaseCell *, vector<double>, vector<double>);
+typedef void EvalJointNF(TCollection *, TBaseCell *, int, vector<double>, vector<double>);
 
 class TFESpace2D;
 typedef void CheckWrongNeumannNodesFunct2D(TCollection *, TFESpace2D *,
@@ -123,19 +127,19 @@ typedef void CheckWrongNeumannNodesFunct2D(TCollection *, TFESpace2D *,
 
 class TSquareMatrix;
 class TMatrix;
-typedef void MatVecProc(TSquareMatrix **, TMatrix **, double *, double *);
-typedef void DefectProc(TSquareMatrix **, TMatrix **, double *, double *,
-                        double *);
+typedef void MatVecProc(TSquareMatrix **, TMatrix **, vector<double>, vector<double>);
+typedef void DefectProc(TSquareMatrix **, TMatrix **, vector<double>, vector<double>,
+                        vector<double>);
 
 class TVertex;
 class TIsoBoundEdge;
 typedef void ModifyMeshCoords(double , double , double &, double &, double );
-typedef void ModifyBoundCoords(int *, TVertex **, TIsoBoundEdge **,  double *, double);
+typedef void ModifyBoundCoords(int *, TVertex **, TIsoBoundEdge **,  vector<double>, double);
 
 typedef void ModifyMeshCoords_3D(double , double ,double , double &, double &,double &, double );
 typedef void ModifyBoundCoords_3D(int, TVertex **, int, int *, TBaseCell **, double);
 class TFEVectFunct3D;
-typedef void MoveBound_3D(TFEVectFunct3D *, TFEVectFunct3D *, double *, int, TVertex **, int, int *, TBaseCell **, double);
+typedef void MoveBound_3D(TFEVectFunct3D *, TFEVectFunct3D *, vector<double>, int, TVertex **, int, int *, TBaseCell **, double);
 
 #ifdef _MPI
 class TParVectorNSE3D;
@@ -148,7 +152,7 @@ typedef int TypeBoundSwitchFunct2D(int, double );
 class TFEFunction2D;
 class TFEVectFunct2D;
 typedef void EvaluateSolutionFunct2D(TFEFunction2D **, TFEVectFunct2D **, 
-                                     double *, int *);
+                                     vector<double>, int *);
 
 
 #define GALERKIN         1
@@ -181,82 +185,7 @@ typedef void EvaluateSolutionFunct2D(TFEFunction2D **, TFEVectFunct2D **,
 
 #define OSEEN_PROBLEM    13
 
-#define HMM86            0 
-#define TP86_1           1
-#define TP86_2           2 
-#define JSW87            3 
-#define GdC88            4 
-#define dCG91            5
-#define dCA03            6 
-#define AS97             7
-#define C93              8 
-#define KLR02_1          9
-#define KLR02_2          10
-#define KLR02_3          11
-#define KLR02_4          12
-#define J90              13
-#define BE02_1           14 
-#define BE02_2           15 
-#define BH04             16 
-#define BE05_1           17 
-#define BE05_2           18 
-#define LP96             19
-#define CS99             20
-#define MH_Kno06         21
-#define BE02_3           22 
-//#define ALG_FLUX_CORR    23 
-#define Y_Z_BETA         24 
-#define JSW87_1          25 
-#define FEM_FCT          50
-#define FEM_FCT_LIN      51
-#define FEM_TVD          52
-#define GENERAL_SOLD    200 
- 
-#define SD_POWER_H  1.0
-#define SD_FACTOR_H 1.0
-
-#define BULK_FWE_FDM_UPWIND    0
-#define BULK_BWE_FDM_UPWIND    1
-#define BULK_BWE_FEM_SUPG      2
-#define BULK_FEM_FCT       3
-
-#define WINDTUNNEL_LAYER_NUMBER_X_CONST 4
-#define WINDTUNNEL_DIM_Y_CONST 47 
-// be careful number of grid points plus 1 right dimension 46
-#define WINDTUNNEL_DIM_Z_CONST 20
-// be careful number of grid points plus 1 right dimension 19
-#define WINDTUNNEL_DIM_R_CONST 47
-//#define WINDTUNNEL_DIM_R_CONST 51
-// be careful number of grid points plus 1 right dimension 45
-
-#define WINDTUNNEL_FWE_FDM_UPWIND    0
-#define WINDTUNNEL_BWE_FDM_UPWIND    1
-#define WINDTUNNEL_FEM_FCT           2
-
-#define UREA_FWE_FDM_UPWIND    0
-#define UREA_BWE_FDM_UPWIND    1
-#define UREA_FEM_FCT           2
-
-#define PB_RKV_ENO             4
-
-#define ABS(i)        (((i)<0) ? (-(i)) : (i))
-
-#ifdef MIN
-  #undef MIN
-#endif
-
-#ifdef MAX
-  #undef MAX
-#endif
-
-#define POW2(i)       (1<<(i))
-#define POW(a,b)      ((b==1)?(a):((b==2)?((a)*(a)):((b==0)?(1):(pow(a,b)))))
-#define ABSDIFF(a,b)  (fabs((a)-(b)))
-
-#define SIGN(a)       ((a>0)?(1):((a<0)?(-1):(0)))
-
-double GetTime();
-int GetMemory();
+   
 
 #define AMG_SOLVE 0
 #define GMG 1

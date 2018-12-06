@@ -1,4 +1,4 @@
-// // =======================================================================
+//=======================================================================
 // ParMooN_IO.h    1.1  
 // 
 // Purpose:    Collection of IO routine and methods for ParMooN
@@ -25,8 +25,7 @@ using std::endl;
 using std::ends;
 using std::setw;
 using std::setprecision;
-
-
+ 
 #define ErrMsg(x) { cerr <<"Error in file "<<__FILE__<<", line "<<__LINE__<<":\n"<<x<<endl; OutFile<<"Error in file "<<__FILE__<<", line "<<__LINE__<<":\n"<<x<<endl;}
 #define Error(x) {ErrMsg(x)}
 
@@ -213,7 +212,7 @@ namespace Output
   /// Return true if is v smaller or equal to the current verbosity level.
   /// v should be between 1 and maxVerbosity, but this is not enforced here.
   bool verbose(unsigned int v);
-  
+  // 
   /// @brief a helper function the user should not call
   ///
   /// Returns true after a call to Output::redirect, otherwise false.
