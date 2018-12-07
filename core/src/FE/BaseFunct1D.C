@@ -76,12 +76,12 @@ PBaseFunct1D::PBaseFunct1D(int dimension)
 // }
 
 /** set function for derivative MultiIndex */
-void PBaseFunct1D::SetFunction(MultiIndex1D MultiIndex, 
-                               DoubleFunct1D* function)
-{
-  if(changable)
-    Functions[MultiIndex] = function;
-}
+// void PBaseFunct1D::SetFunction(MultiIndex1D MultiIndex, 
+//                                DoubleFunct1D* function)
+// {
+//   if(changable)
+//     Functions[MultiIndex] = function;
+// }
 
 /** make data on reference element */
 // void PBaseFunct1D::MakeRefElementData(QuadFormula1D QuadFormula)
