@@ -12,7 +12,6 @@
 #ifndef __BASEFUNCT__
 #define __BASEFUNCT__
 
-// #include <QuadFormula1D.h>
 #include <Parameters.h>
 #include <FeEnumerations.h>
 
@@ -37,32 +36,27 @@ class PBaseFunct
   public:
 
     /** constructor without filling data structure */
-    PBaseFunct(int dimension);
+    PBaseFunct(int dimension)
+     {
+      Dimension = dimension;
+      changable = false;
+     }
+
 
     /** return the dimension of local space */
     int GetDimension() { return Dimension; }
 
-    /** return the values for derivative MultiIndex at xi */
-//     void GetDerivatives(MultiIndex1D MultiIndex, double xi, std::vector<double>values)
-//       { Functions[MultiIndex](xi, values); };
-
-    /** return the values for derivative MultiIndex at all
-        quadrature points */
-//     void GetDerivatives(MultiIndex1D MultiIndex, 
-//                         TQuadFormula1D *formula, double **values);
-
     /** set status to unchangable */
     void SetUnchangable() { changable = false; };
 
-    /** set function for derivative MultiIndex */
-    void SetFunction(MultiIndex1D MultiIndex, DoubleFunct1D* function);
-
-    
-//     template <typename T>
-//      void SetFunction(MultiIndex1D MultiIndex, DoubleFunct1D* function);
+    /** set function for derivative MultiIndex */   
+/*    template <typename S,typename T>
+     void SetFunction(S MultiIndex, T *function)
+      { if(changable) Functions[MultiIndex] = function; }  */ 
     
     /** make date on reference element */
-//     void MakeRefElementData(QuadFormula1D QuadFormula); !!!!! remove it after installing quad formulae
+    template <typename Q>
+    void MakeRefElementData(Q QuadFormula);
 
     /** return polynomial degree */
     int GetPolynomialDegree() { return PolynomialDegree; };

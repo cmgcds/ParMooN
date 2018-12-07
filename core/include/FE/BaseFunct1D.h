@@ -12,59 +12,43 @@
 #ifndef __BASEFUNCT1D__
 #define __BASEFUNCT1D__
 
+#include <BaseFunct.h>
 // #include <QuadFormula1D.h>
 #include <Parameters.h>
 #include <FeEnumerations.h>
 
 using namespace std;
 
-/** set of all base function on the reference element for a finite 
-    element in two dimensions */
-class PBaseFunct1D
+/** set of all base function on the reference element in one-dimension */
+class PBaseFunct1D  : public PBaseFunct
 {
   protected:
-    /** number of base functions = dimension of local space */
-    int Dimension;
-
     /** Id for this set of base functions */
-    shared_ptr< BaseFunct1D >  BaseFunct;
+    BaseFunct1D  Basefunction;
  
     /** array for all functions and derivatives */
-//     DoubleFunct1D *Functions[N_MultiIndices1D];
- 
     vector< shared_ptr< DoubleFunct1D > >Functions;
     
-    /** status of changability of entries */
-    bool changable;
-
-    /** polynomial degree */
-    int PolynomialDegree;
-
-    /** accuracy */
-    int Accuracy;
-
   public:
     /** constructor, fill in all information */
     PBaseFunct1D(int dimension, BaseFunct1D basefunct,
-                 DoubleFunct1D* functions, 
-                 DoubleFunct1D* derivativesxi,
-                 DoubleFunct1D* derivativesxixi);
+                 shared_ptr< DoubleFunct1D > functions, 
+                 shared_ptr< DoubleFunct1D > derivativesxi,
+                 shared_ptr< DoubleFunct1D > derivativesxixi);
 
     /** constructor, fill in all information */
     PBaseFunct1D(int dimension, BaseFunct1D basefunct,
-                 DoubleFunct1D* functions, 
-                 DoubleFunct1D* derivativesxi,
-                 DoubleFunct1D* derivativesxixi,
+                 shared_ptr< DoubleFunct1D > functions, 
+                 shared_ptr< DoubleFunct1D > derivativesxi,
+                 shared_ptr< DoubleFunct1D > derivativesxixi,
                  int polynomialdegree,
                  int accuracy);
-
-    /** constructor without filling data structure */
-    PBaseFunct1D(int dimension);
-
-    /** return the dimension of local space */
-    int GetDimension() 
-    { return Dimension; }
-
+      
+    
+     template <typename S,typename T>
+     void SetFunction(S MultiIndex, T *function)
+      { if(changable) Functions[MultiIndex] = function; }  
+      
     /** return the values for derivative MultiIndex at xi */
 //     void GetDerivatives(MultiIndex1D MultiIndex, double xi, std::vector<double>values)
 //       { Functions[MultiIndex](xi, values); };
@@ -73,28 +57,6 @@ class PBaseFunct1D
         quadrature points */
 //     void GetDerivatives(MultiIndex1D MultiIndex, 
 //                         TQuadFormula1D *formula, double **values);
-
-    /** set status to unchangable */
-    void SetUnchangable()
-      { changable = false; };
-
-    /** set function for derivative MultiIndex */
-    void SetFunction(MultiIndex1D MultiIndex, DoubleFunct1D* function);
-
-    
-   template <typename S,typename T>
-     void SetFunctio(MultiIndex1D MultiIndex, DoubleFunct1D* function);    
-    
-    /** make date on reference element */
-//     void MakeRefElementData(QuadFormula1D QuadFormula); !!!!! remove it after installing quad formulae
-
-    /** return polynomial degree */
-    int GetPolynomialDegree()
-      { return PolynomialDegree; };
-
-    /** return accuracy */
-    int GetAccuracy()
-      { return Accuracy; };
 
 };
 

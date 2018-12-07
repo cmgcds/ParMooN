@@ -14,51 +14,44 @@
 
 /** constructor, fill in all information */
 PBaseFunct1D::PBaseFunct1D(int dimension, BaseFunct1D basefunct,
-                           DoubleFunct1D* functions, 
-                           DoubleFunct1D* derivativesxi,
-                           DoubleFunct1D* derivativesxixi)
+                           shared_ptr< DoubleFunct1D > functions, 
+                           shared_ptr< DoubleFunct1D > derivativesxi,
+                           shared_ptr< DoubleFunct1D > derivativesxixi) : PBaseFunct(dimension)
 {
-//   Dimension=dimension;
-// 
-//   BaseFunct = basefunct;
-// 
-//   Functions[D0]=functions;
-//   Functions[D1]=derivativesxi;
-//   Functions[D2]=derivativesxixi;
-// 
-//   changable = false;
+ 
+  Basefunction = basefunct;
+
+  
+  if(Functions.size()!= N_MultiIndices2D) 
+      {Functions.reserve(N_MultiIndices2D);}
+      
+  Functions[D0]=functions;
+  Functions[D1]=derivativesxi;
+  Functions[D2]=derivativesxixi;
 }
 
 /** constructor, fill in all information */
 PBaseFunct1D::PBaseFunct1D(int dimension, BaseFunct1D basefunct,
-                           DoubleFunct1D* functions, 
-                           DoubleFunct1D* derivativesxi,
-                           DoubleFunct1D* derivativesxixi,
+                           shared_ptr< DoubleFunct1D > functions, 
+                           shared_ptr< DoubleFunct1D > derivativesxi,
+                           shared_ptr< DoubleFunct1D > derivativesxixi,
                            int polynomialdegree,
-                           int accuracy)
+                           int accuracy) : PBaseFunct(dimension)
 {
-//   Dimension=dimension;
-// 
-//   BaseFunct = basefunct;
-// 
-//   Functions[D0]=functions;
-//   Functions[D1]=derivativesxi;
-//   Functions[D2]=derivativesxixi;
-// 
-//   changable = false;
-// 
-//   PolynomialDegree = polynomialdegree;
-//   Accuracy = accuracy;
+ 
+  Basefunction = basefunct;
+
+  if(Functions.size()!= N_MultiIndices2D) 
+    {Functions.reserve(N_MultiIndices2D);}
+      
+  Functions[D0]=functions;
+  Functions[D1]=derivativesxi;
+  Functions[D2]=derivativesxixi;
+
+  PolynomialDegree = polynomialdegree;
+  Accuracy = accuracy;
 }
 
-
-/** constructor without filling data structure */
-PBaseFunct1D::PBaseFunct1D(int dimension)
-{
-//   Dimension = dimension;
-// 
-//   changable = false;
-}
 
 /** return the values for derivative MultiIndex at all
     quadrature points */
@@ -76,8 +69,7 @@ PBaseFunct1D::PBaseFunct1D(int dimension)
 // }
 
 /** set function for derivative MultiIndex */
-// void PBaseFunct1D::SetFunction(MultiIndex1D MultiIndex, 
-//                                DoubleFunct1D* function)
+// void PBaseFunct1D::SetFunction(S MultiIndex, T *function)
 // {
 //   if(changable)
 //     Functions[MultiIndex] = function;
