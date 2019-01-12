@@ -1,5 +1,33 @@
- 
 
+// ======================================================================
+// use it for Quadrature formulae
+#include <tuple>
+#include <iostream>
+#include <string>
+#include <stdexcept>
+ 
+std::tuple<double, char, std::string> get_student(int id)
+{
+    if (id == 0) return std::make_tuple(3.8, 'A', "Lisa Simpson");
+    if (id == 1) return std::make_tuple(2.9, 'C', "Milhouse Van Houten");
+    if (id == 2) return std::make_tuple(1.7, 'D', "Ralph Wiggum");
+    throw std::invalid_argument("id");
+} 
+
+int main()
+{
+    double gpa1;
+    char grade1;
+    std::string name1;
+ 
+    // C++17 structured binding:
+    auto [ gpa2, grade2, name2 ] = get_student(2);
+    std::cout << "ID: 2, "
+              << "GPA: " << gpa2 << ", "
+              << "grade: " << grade2 << ", "
+              << "name: " << name2 << '\n';
+}
+// ======================================================================
 
 using FunctionFunc = std::function<void(int arg1, std::string arg2)>;
 
